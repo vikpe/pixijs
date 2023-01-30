@@ -49,3 +49,6 @@ pixi.code-workspace
 
 # webdoc api
 dist/docs/pixi.api.json
+
+# benchmark results
+benchmark.txt
