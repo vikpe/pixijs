@@ -2,10 +2,6 @@ module.exports = {
     testPathIgnorePatterns: ['/node_modules/', '/src/', '/dist/', '/lib/', '/out/', '/bundles/'],
     preset: 'ts-jest/presets/js-with-ts',
     runner: 'jest-electron/runner',
-    reporters: [
-      'default',
-      '<rootDir>/test/custom-reporter.js',
-    ],
     testEnvironment: 'jest-electron/environment',
     setupFilesAfterEnv: [
         'jest-extended/all',

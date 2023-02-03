@@ -51,4 +51,4 @@ pixi.code-workspace
 dist/docs/pixi.api.json
 
 # benchmark results
-benchmark.txt
+benchmarks/result.txt
