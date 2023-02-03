@@ -23,7 +23,7 @@
     "coverage": "npm run test -- --coverage --maxWorkers=4",
     "coverage:node": "workspaces-run --only=\"@pixi/node\" -- npm run coverage",
     "docs": "mkdirp dist && webdoc -R README.md",
-    "lint": "eslint --cache --ext .js --ext .mjs --ext .ts test bundles packages scripts --ignore-path .gitignore --max-warnings 0",
+    "lint": "eslint --cache --ext .js --ext .ts test bundles packages scripts --ignore-path .gitignore --max-warnings 0",
     "lintfix": "run-s \"lint -- --fix\"",
     "types": "tsc --noEmit",
     "types:strict": "npm run types -- --strictNullChecks | ts-node ./scripts/filterTypeScriptErrors.ts",
