@@ -8,7 +8,7 @@
   ],
   "scripts": {
     "start": "run-s watch",
-    "benchmark": "jest --projects jest-bench.config.js",
+    "benchmark": "jest --projects jest-bench.config.js --ci --watchAll=false",
     "clean:build": "rimraf \"{bundles,packages,out}/*/{dist,lib}\"",
     "clean:types": "rimraf \"{bundles,packages}/*/lib/**/*.d.ts\"",
     "clean:out": "rimraf out",
