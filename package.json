@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "start": "run-s watch",
+    "benchmark": "npx jest --projects jest-bench.config.js",
     "clean:build": "rimraf \"{bundles,packages,out}/*/{dist,lib}\"",
     "clean:types": "rimraf \"{bundles,packages}/*/lib/**/*.d.ts\"",
     "clean:out": "rimraf out",
@@ -69,6 +70,7 @@
     "glob": "^7.1.3",
     "http-server": "^14.1.1",
     "jest": "^26.0.0",
+    "jest-bench": "^26.6.3",
     "jest-electron": "^0.1.12",
     "jest-extended": "^1.2.1",
     "jest-raw-loader": "^1.0.1",
