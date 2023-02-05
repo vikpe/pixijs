@@ -1,0 +1,46 @@
+name: Benchmark
+on:
+  push:
+    #branches:
+    #  - dev
+
+jobs:
+  benchmark:
+    name: Performance regression check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Canvas Dependencies
+        run: sudo apt-get install build-essential libcairo2-dev libgif-dev libjpeg-dev libpango1.0-dev librsvg2-dev xvfb
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run benchmark
+        run: npm run benchmark
+
+      - name: Download previous benchmark data
+        uses: actions/cache@v1
+        with:
+          path: ./cache
+          key: ${{ runner.os }}-benchmark
+
+      - name: Compare benchmark results
+        uses: benchmark-action/github-action-benchmark@v1
+        with:
+          name: Benchmark.js Benchmark
+          tool: 'benchmarkjs'
+          output-file-path: benchmarks/result.txt
+          external-data-json-path: ./cache/benchmark-data.json
+
+          # alert-threshold: '200%'
+          # fail-on-alert: true
+          # github-token: ${{ secrets.GITHUB_TOKEN }} # GitHub API token to make a commit comment
+          # comment-on-alert: true
